@@ -1,0 +1,64 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                    <legend class="text-center">Please fill this form:<span class="req"><small>
+                                required *</small></span></legend>
+
+                                <div class="form-group">
+                                    <label for="Age"><span class="req">* </span> Your age: <small>Select your age group</small> </label>
+                                    <select [(ngModel)]="client.ageGroup" name="age" id="age" required>
+                                        <option value = "1">0-17</option>
+                                        <option value = "2">18-64</option>
+                                        <option value = "3">65+</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Income"><span class="req">* </span> Your income: <small>Select your income group</small> </label>
+                                    <select [(ngModel)]="client.incomeGroup" name="income" id="income" required>
+                                        <option value = "1">0</option>
+                                        <option value = "2">1-12000</option>
+                                        <option value = "3">12001-40000</option>
+                                        <option value = "4">40001+</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Status"><span class="req">* </span> Student: <small>Select an answer </small> </label>
+                                    <select [(ngModel)]="client.isStudent" name="status" id="status" required>
+                                        <option value = true>Yes</option>
+                                        <option value = false>No</option>
+                                    </select>
+                                </div>
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Submit" (click)="showProducts()">
+                    </div>
+                    <legend class="text-center" *ngIf = "products.length >0">We can offer you these products:</legend>
+
+                    <table class="table table-striped custab">
+                        <thead>
+                            <tr *ngIf = "products.length >0">
+                                <th>Product name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let product of products">
+                                <td>{{product.name}}</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
